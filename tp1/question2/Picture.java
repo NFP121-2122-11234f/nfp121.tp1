@@ -15,11 +15,12 @@ import question1.Triangle;
  * @author Michael Kolling and David J. Barnes
  * @version 1.1 (24 May 2001)
  */
-public class Picture {
+public class Picture{
     private Square wall;
     private Square window;
     private Triangle roof;
     private Circle sun;
+    private Circle sun2;
 
     /**
      * Constructor for objects of class Picture
@@ -50,13 +51,18 @@ public class Picture {
         roof.makeVisible();
 
         sun = new Circle();
+        sun2=new Circle();
+        sun2.makeVisible();
         sun.changeColor("yellow");
+        sun2.changeColor("blue");
         sun.moveHorizontal(180);
         sun.moveVertical(-10);
         sun.changeSize(60);
+        sun2.changeSize(60);
         sun.makeVisible();
     }
 
+    
     /**
      * Change this picture to black/white display
      */
@@ -67,6 +73,21 @@ public class Picture {
             window.changeColor("white");
             roof.changeColor("black");
             sun.changeColor("black");
+        }
+    }
+     public void slowMoveHorizontal(int distance) {
+        int delta;
+
+        if (distance < 0) {
+            delta = -1;
+            distance = -distance;
+        } else {
+            delta = 1;
+        }
+
+        for (int i = 0; i < distance; i++) {
+            //xPosition += delta;
+            draw();
         }
     }
 
@@ -81,6 +102,18 @@ public class Picture {
             roof.changeColor("green");
             sun.changeColor("yellow");
         }
+    }
+    /**
+     * Methode pour permettre au soleil bleu de se coucher
+     */
+    public void SeCoucher(){
+        
+        if(wall != null) //only if it's painted already...
+        {
+            sun2.slowMoveVertical(220);
+        }
+        
+        
     }
 
 }

@@ -119,7 +119,16 @@ public class AuditeurCNAMTest extends junit.framework.TestCase {
                 "chloé", "12345");
         assertEquals("Mme Chloé chloé ", "Chloé", auditeur1.nom());
         assertEquals("Mme Chloé chloé ", "chloé", auditeur1.prenom());
-        assertEquals(" nom avec accent (é devient e) ? ", "chloe_c",
+        assertEquals(" nom avec accent (é devient e) ? ", "chlo__c",
             auditeur1.login());
     }
+    
+
+    public void test_matricule()
+    {
+           question3.AuditeurCNAM auditeur1 = new question3.AuditeurCNAM(
+                "Riva", "Koteich", "12345");
+            assertEquals(" matricule ?", "12345", auditeur1.matricule());
+    }
 }
+

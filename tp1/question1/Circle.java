@@ -22,7 +22,7 @@ public class Circle {
      */
     public Circle() {
         diameter = 30;
-        xPosition = 20;
+        xPosition = 21;
         yPosition = 60;
         color = "blue";
         isVisible = false;
